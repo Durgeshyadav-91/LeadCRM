@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './App.css';
 import './index.css';
-import Navbar from './components/NavBar'
+import Navbar from './components/Navbar'
 import Banner from './components/Banner'
 import Stats from './components/Stats';
 import ChallengesComparison from './components/ChallengesComparison';
