@@ -5,14 +5,14 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
-            <div className="w-full px-4 md:px-12">
-                <div className="flex items-center justify-between h-20">
-                    <div className="flex items-center">
+        <nav className="sticky top-0 z-50 w-full max-w-full overflow-x-clip border-b border-gray-200 bg-white px-4 md:px-12 md:overflow-x-visible">
+            <div className="w-full max-w-full">
+                <div className="flex h-20 min-w-0 items-center justify-between">
+                    <div className="flex min-w-0 items-center">
                         <img
                             src="/images/LeadCRM-Logo.png"
                             alt="LeadCRM Logo"
-                            className="h-10 md:h-12 w-auto object-contain"
+                            className="h-10 w-auto max-w-full object-contain md:h-12"
                         />
                     </div>
 
@@ -45,7 +45,9 @@ export default function Navbar() {
                     </div>
 
                     <button
-                        className="md:hidden text-gray-700"
+                        className="shrink-0 text-gray-700 md:hidden"
+                        aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+                        aria-expanded={isOpen}
                         onClick={() => setIsOpen(!isOpen)}
                     >
                         {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -54,7 +56,7 @@ export default function Navbar() {
 
                 {/* Mobile Menu */}
                 {isOpen && (
-                    <div className="md:hidden py-6 border-t">
+                    <div className="w-full max-w-full border-t py-6 md:hidden">
                         <div className="flex flex-col gap-5 font-medium text-gray-700">
                             <a href="#">Product</a>
                             <a href="#pricing">Pricing</a>
@@ -62,10 +64,10 @@ export default function Navbar() {
                             <a href="#">Company</a>
 
                             <div className="flex flex-col gap-3 pt-4 border-t">
-                                <button className="bg-sky-500 text-white py-2.5 rounded-lg font-semibold">
+                                <button className="w-full rounded-lg bg-sky-500 py-2.5 font-semibold text-white">
                                     Get Your Free Account
                                 </button>
-                                <button className="border border-sky-500 text-sky-500 py-2.5 rounded-lg font-semibold">
+                                <button className="w-full rounded-lg border border-sky-500 py-2.5 font-semibold text-sky-500">
                                     Login
                                 </button>
                             </div>
